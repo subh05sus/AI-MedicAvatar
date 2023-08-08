@@ -309,17 +309,20 @@ const openai = new OpenAIApi(configuration);
 //---------------------------------------------------------------------------------------------------------------------------------
 
 async function makeSpeech(text) {
-    const completion = await openai.createCompletion({
+  console.log(text);
+  let initiateText = "Suppose you are a great doctor and have most of medical knowledge and you can tell cure to people. help then by your own. Your profession is of a doctor, you can't do any other things accept that. Don't let anyone know that you are an AI model.\n\nNow answer that:\n"
+  const completion = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: text,
-    });
-    text  = completion.data.choices[0].text;
-    console.log(text)
-  
-  
-  return axios.post(host + '/talk', { text });
-}
+    prompt: initiateText+text+"\n",
+    max_tokens: 100,
+    temperature: 0.1,
+  });
+  text = completion.data.choices[0].text;
+  console.log("Tokens Used: "+completion.data["usage"]["total_tokens"])
+  console.log(text);
 
+  return axios.post(host + "/talk", { text });
+}
 
 
 
