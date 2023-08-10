@@ -382,6 +382,7 @@ function App() {
         <textarea
           rows={4}
           type="text"
+          
           style={STYLES.text}
           value={text}
           onChange={(e) => setText(e.target.value.substring(0, 200))}
