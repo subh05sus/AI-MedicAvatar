@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-react": "^2.2.0",
     "@react-three/drei": "^9.17.1",
     "@react-three/fiber": "^8.1.0",
     "@testing-library/jest-dom": "^5.16.4",
@@ -26,7 +27,6 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    
     "extends": [
       "react-app",
       "react-app/jest"
@@ -43,6 +43,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-    
   }
 }
